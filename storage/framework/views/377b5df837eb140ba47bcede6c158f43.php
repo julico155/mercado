@@ -1,0 +1,1 @@
+<?php /**PATH C:\xampp\htdocs\mercadoverde\resources\views/VistaEmpresa/categoriaCreate.blade.php ENDPATH**/ ?>
