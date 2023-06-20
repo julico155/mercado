@@ -24,11 +24,9 @@
                             <input type="hidden" name="producto_precio" value="{{ $p->precio }}">
 
                             <div class="flex justify-start">
-                                <input type="number" name="cantidad" placeholder="Cantidad" required min="1"
-                                    max="{{ $p->cantidad }}" class="border border-gray-300 px-4 py-2 rounded-l-md w-32">
-
+                                <input type="number" name="cantidad" placeholder="Cantidad" required min="1" max="{{  $p->stock }}" class="border border-gray-300 px-4 py-2 rounded-l-md w-32">
                                 <button class="bg-green-500 text-white px-4 py-2 rounded-r-md">Agregar al Carrito</button>
-                            </div>
+                              </div>
                         </form>
                     @else
                         <p class="text-red-600 bg-red-100 border border-red-600 rounded-md px-4 py-2 mb-4">Inicia sesión para

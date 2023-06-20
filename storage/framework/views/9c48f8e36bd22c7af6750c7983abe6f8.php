@@ -110,7 +110,7 @@
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
                                 <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Compra')); ?></a>
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Compra(No disponible)')); ?></a>
                                 </li>
                                 <li><a href="<?php echo e(route('pedido.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Pedido')); ?></a>
@@ -202,9 +202,6 @@
                                 <li><a href="<?php echo e(route('producto.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Producto')); ?></a>
                                 </li>
-                                <li><a href="<?php echo e(route('stock.index')); ?>"
-                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Stock')); ?></a>
-                            </li>
                             </ul>
                         </div>
                     <?php endif; ?>

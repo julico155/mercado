@@ -78,9 +78,9 @@ class ProductoController extends Controller
         // dd($producto);
         $p = producto::find($producto->id);
         $u = User::find($p->id_propietario)->first();
-        $s = stock::where('producto_id',$producto->id)->first();
+
         // dd($p);
-        return view('VistaEmpresa.productoShow', compact('p', 'u','s'));
+        return view('VistaEmpresa.productoShow', compact('p', 'u'));
     }
 
     /**

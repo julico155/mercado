@@ -68,6 +68,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = user::find($id);
+        $user->delete();
     }
 }
