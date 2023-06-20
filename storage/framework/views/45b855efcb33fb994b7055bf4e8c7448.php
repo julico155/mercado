@@ -21,6 +21,7 @@
                             </div>
                             <div class="ml-4">
                                 <h2 class="text-lg font-bold"><?php echo e($producto->nombre); ?></h2>
+                                <p class="mb-2">Stock: <?php echo e($producto->stock); ?></p>
                                 <p class="mb-2"><?php echo e($producto->descripcion); ?></p>
                                 <p class="text-lg font-semibold">Precio: <?php echo e($producto->precio); ?></p>
                                 <form action="<?php echo e(route('producto.destroy', $producto->id)); ?>" method="POST"

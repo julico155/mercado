@@ -64,7 +64,7 @@ class VentaController extends Controller
             $dv->save();
 
             $p = producto::where('id', $detalle->producto_id)->first();
-            $p->cantidad = $p->cantidad - $detalle->cantidad;
+            $p->stock = $p->stock - $detalle->cantidad;
             $p->save();
 
             $detalle->delete();

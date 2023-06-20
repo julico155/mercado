@@ -62,12 +62,9 @@ class ProductoController extends Controller
         $p->imagen = $destino . $foto;
         $p->categoria_id = $request->categoria;
         $p->marca_id = $request->marca;
+        $p->stock = 0;
+        $p->stock_min = $request->cant_min;
         $p->save();
-
-        $stock = new Stock;
-        $stock->producto_id = $p->id;
-        $stock->cantidad = 0;
-        $stock->save();
 
 
         return redirect()->route('producto.index');
@@ -103,23 +100,22 @@ class ProductoController extends Controller
     {
         // dd($request,$producto);
         $p = producto::where('id', $producto->id)->first();
-        $p->nombre = $request->nombre;
-        $p->descripcion = $request->descripcion;
-        $p->cantidad = $request->cantidad;
-        $p->precio = $request->precio;
-        $p->categoria_id = $request->categoria;
-
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $destino = 'img/fotosProductos/';
-            $foto =  time() . '-' . $file->getClientOriginalName();
+            $foto = time() . '-' . $file->getClientOriginalName();
             $subirImagen = $request->file('foto')->move($destino, $foto);
-            $p->imagen = $destino . $foto;
         } else {
-            $foto = $p->imagen;
-            $p->imagen = $foto;
+            $foto = $p->foto; // Mantenemos la foto existente si no se proporciona una nueva imagen
         }
+        $p->nombre = $request->nombre;
+        $p->descripcion = $request->descripcion;
+        $p->stock_min = $request->stock_min;
+        $p->precio = $request->precio;
+        $p->categoria_id = $request->categoria;
+        $p->imagen = $destino . $foto;
+
         $p->save();
 
         return redirect()->route('producto.index')->with('success', 'Producto Actualizado con Exito');

@@ -25,7 +25,7 @@
                                     <td class="py-3 px-4">
                                         <p class="font-semibold text-left"><?php echo e($producto->nombre); ?></p>
                                         <p class="text-xs text-left">Descripción: <?php echo e($producto->descripcion); ?></p>
-                                        <p class="text-xs text-left">Restaurante: <?php echo e($producto->empresa); ?></p>
+                                        <p class="text-xs text-left"></p>
                                     </td>
                                     <td class="py-3 px-4"><?php echo e($producto->cantidad); ?></td>
                                     <td class="py-3 px-4"><?php echo e($producto->precio); ?></td>

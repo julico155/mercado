@@ -27,7 +27,7 @@
                                     <td class="py-3 px-4">
                                         <p class="font-semibold text-left">{{ $producto->nombre }}</p>
                                         <p class="text-xs text-left">Descripción: {{ $producto->descripcion }}</p>
-                                        <p class="text-xs text-left">Restaurante: {{ $producto->empresa }}</p>
+                                        <p class="text-xs text-left"></p>
                                     </td>
                                     <td class="py-3 px-4">{{ $producto->cantidad }}</td>
                                     <td class="py-3 px-4">{{ $producto->precio }}</td>

@@ -16,7 +16,7 @@
                     <h2 class="text-2xl font-bold mb-4">Nota de Venta</h2>
 
                     <div class="bg-white shadow-md rounded px-8 py-6 mb-4">
-                        <p class="text-gray-700"><strong>Restaurante:</strong> Organic Food</p>
+                        <p class="text-gray-700"><strong>JLY COMPANY</strong></p>
                         <p class="text-gray-700"><strong>Cliente:</strong> {{ $ventas[0]->cliente }}</p>
                         <p class="text-gray-700"><strong>Fecha:</strong> {{ Carbon::parse($ventas[0]->fecha)->format('d/m/Y') }}
                         </p>
@@ -47,7 +47,7 @@
 
                                         <p class="font-semibold text-left">{{ $venta->nombre }}</p>
                                         <p class="text-xs text-left">Descripción: {{ $venta->descripcion }}</p>
-                                        <p class="text-xs text-left">Restaurante: {{ $venta->empresa }}</p>
+                                        <p class="text-xs text-left"></p>
                                         </td>
                                         <td class="border-t px-6 py-4">{{ $venta->punit }}</td>
                                         <td class="border-t px-6 py-4">{{ $venta->precio }}</td>
@@ -83,7 +83,7 @@
         function imprimirContenido() {
             var contenido = document.getElementById("contenido-a-imprimir").innerHTML;
             var ventana = window.open("", "_blank");
-            ventana.document.write('<html><head><title>Impresión</title></head><body>' + contenido + '</body></html>');
+            ventana.document.write('<html><head><title>Impresión</title><link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"><style>table {border-collapse: separate; border-spacing: 0; width: 100%;} th, td {border: 1px solid #ddd; padding: 12px; text-align: center; font-size: 14px;} th {background-color: #FCE7D4;} .bg-gray-100 {background-color: #F9FAFB;}</style></head><body class="bg-gray-100">' + contenido + '</body></html>');
             ventana.document.close();
             ventana.print();
             ventana.close();

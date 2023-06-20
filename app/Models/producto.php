@@ -14,12 +14,12 @@ class producto extends Model
         return $this->belongsTo(categoria::class);
     }
     public function marca()
-    {
-        return $this->belongsTo(marca::class);
-    }
+{
+    return $this->belongsTo(Marca::class, 'marca_id');
+}
     public function stock()
     {
     return $this->hasOne(Stock::class);
     }
-    
+
 }

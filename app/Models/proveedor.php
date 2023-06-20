@@ -9,8 +9,9 @@ class proveedor extends Model
 {
     use HasFactory;
 
-    public function marca()
-    {
-    return $this->hasOne(marca::class);
-    }
+    public function proveedor()
+{
+    return $this->belongsTo(Proveedor::class, 'marca_id');
+}
+
 }

@@ -23,6 +23,7 @@
                             </div>
                             <div class="ml-4">
                                 <h2 class="text-lg font-bold">{{ $producto->nombre }}</h2>
+                                <p class="mb-2">Stock: {{ $producto->stock }}</p>
                                 <p class="mb-2">{{ $producto->descripcion }}</p>
                                 <p class="text-lg font-semibold">Precio: {{ $producto->precio }}</p>
                                 <form action="{{ route('producto.destroy', $producto->id) }}" method="POST"

@@ -5,7 +5,7 @@
         <div class="overflow-x-auto mx-auto bg-white shadow-md rounded px-8 py-6 mt-8">
             <div class="text-center">
                 <a href="{{ route('empresa.show', $u->id) }}">
-                    <h2 class="text-2xl text-green-500 font-bold mb-6">Restaurante: {{ $u->name }}</h2>
+                    <h2 class="text-2xl text-green-500 font-bold mb-6">JLY COMPANY</h2>
                 </a>
             </div>
 
@@ -13,7 +13,7 @@
                 <img src="{{ asset($p->imagen) }}" alt="Foto del producto" class="w-full h-64 object-cover">
                 <div class="p-4">
                     <h3 class="text-xl font-medium text-gray-800">{{ $p->nombre }}</h3>
-                    <p class="text-sm text-gray-600 mb-4">Cantidad disponible: {{ $s->cantidad }}</p>
+                    <p class="text-sm text-gray-600 mb-4">Cantidad disponible: {{ $p->stock }}</p>
                     <p class="text-gray-600 mb-4">{{ $p->descripcion }}</p>
                     {{-- @dd($p->id) --}}
                     @auth
@@ -25,7 +25,7 @@
 
                             <div class="flex justify-start">
                                 <input type="number" name="cantidad" placeholder="Cantidad" required min="1"
-                                    max="{{ $s->cantidad }}" class="border border-gray-300 px-4 py-2 rounded-l-md w-32">
+                                    max="{{ $p->cantidad }}" class="border border-gray-300 px-4 py-2 rounded-l-md w-32">
 
                                 <button class="bg-green-500 text-white px-4 py-2 rounded-r-md">Agregar al Carrito</button>
                             </div>

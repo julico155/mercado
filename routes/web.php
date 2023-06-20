@@ -9,6 +9,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VentaController;
 
 /*
@@ -43,14 +44,15 @@ Route::get('/dashboard', function () {
 Route::resource('empresa', EmpresaController::class);
 Route::resource('venta', VentaController::class);
 Route::get('notaVenta{id}', [VentaController::class, 'notaVenta'])->name('notaVenta');
-
+Route::resource('user',UserController::class);
 Route::resource('producto', ProductoController::class);
 Route::resource('categoria', CategoriaController::class);
 Route::resource('marca',MarcaController::class);
 Route::resource('stock',StockController::class);
 Route::resource('proveedor',ProveedorController::class);
+
 Route::resource('carrito', CarritoController::class)->except(['update']);
 Route::put('carrito$carrito', [CarritoController::class, 'update'])->name('carrito.update');
 
 Route::resource('pedido', PedidoController::class)->except(['update']);
-Route::put('pedido$pedido', [PedidoController::class, 'update'])->name('carrito.update');
+// Route::put('pedido$pedido', [PedidoController::class, 'update'])->name('.update');

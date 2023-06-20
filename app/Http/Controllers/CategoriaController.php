@@ -68,12 +68,12 @@ class CategoriaController extends Controller
 
     // Verificar si la categoría tiene productos relacionados
     if ($categoria->productos()->exists()) {
-        return redirect()->route('marca.index')->with('error', 'No se puede eliminar la categoría porque tiene productos asociados');
+        return redirect()->route('categoria.index')->with('error', 'No se puede eliminar la categoría porque tiene productos asociados');
     }
 
     // Si no hay productos relacionados, se puede eliminar la categoría
     $categoria->delete();
-    return redirect()->route('marca.index')->with('success', 'Categoría eliminada correctamente');
+    return redirect()->route('categoria.index')->with('success', 'Categoría eliminada correctamente');
 }
 
 }

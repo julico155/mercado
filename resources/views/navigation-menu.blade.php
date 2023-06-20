@@ -7,8 +7,8 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-application-mark class="block h-9 w-auto" /> --}}
-                        <div class="flex justify-center">
-                            <img class="block h-9 w-auto" src="{{ asset('img/Logo-copiav2.png') }}" alt="Mercado Verde"
+                        <div class="flex justify-center ">
+                            <img class="block h-14 w-auto" src="{{ asset('img/jly-logo.png') }}" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -22,11 +22,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    @can('empresa')
-                        <x-nav-link href="{{ route('empresa.index') }}" :active="request()->routeIs('empresa.index')">
-                            {{ __('Registro de Producto') }}
-                        </x-nav-link>
-                    @endcan
+
                     @can('admin')
                         <!-- Gestion de Usuarios -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
@@ -43,7 +39,7 @@
                                 x-transition:leave-start="opacity-100 transform scale-100"
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
-                                <li><a href="#"
+                                <li><a href="{{ route('user.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Usuarios') }}</a>
                                 </li>
                                 <li><a href="#"
@@ -83,7 +79,7 @@
                             </ul>
                         </div>
                     @endcan
-                    @can('admin')
+                    @can('cliente')
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -236,11 +232,11 @@
                             <x-slot name="content">
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                    {{ __('Administrar Cuenta') }}
                                 </div>
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                                    {{ __('Perfil') }}
                                 </x-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -256,7 +252,7 @@
                                     @csrf
 
                                     <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('Cerrar Sesion') }}
                                     </x-dropdown-link>
                                 </form>
                             </x-slot>

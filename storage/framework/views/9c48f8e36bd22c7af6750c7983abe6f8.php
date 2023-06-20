@@ -7,8 +7,8 @@
                 <div class="shrink-0 flex items-center">
                     <a href="<?php echo e(route('dashboard')); ?>">
                         
-                        <div class="flex justify-center">
-                            <img class="block h-9 w-auto" src="<?php echo e(asset('img/Logo-copiav2.png')); ?>" alt="Mercado Verde"
+                        <div class="flex justify-center ">
+                            <img class="block h-14 w-auto" src="<?php echo e(asset('img/jly-logo.png')); ?>" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -36,25 +36,7 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('empresa')): ?>
-                        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.nav-link','data' => ['href' => ''.e(route('empresa.index')).'','active' => request()->routeIs('empresa.index')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('nav-link'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['href' => ''.e(route('empresa.index')).'','active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('empresa.index'))]); ?>
-                            <?php echo e(__('Registro de Producto')); ?>
 
-                         <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-                    <?php endif; ?>
                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                         <!-- Gestion de Usuarios -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
@@ -85,7 +67,7 @@
                                 x-transition:leave-start="opacity-100 transform scale-100"
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
-                                <li><a href="#"
+                                <li><a href="<?php echo e(route('user.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Usuarios')); ?></a>
                                 </li>
                                 <li><a href="#"
@@ -139,7 +121,7 @@
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente')): ?>
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -281,7 +263,7 @@
                              <?php $__env->slot('content', null, []); ?> 
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    <?php echo e(__('Manage Account')); ?>
+                                    <?php echo e(__('Administrar Cuenta')); ?>
 
                                 </div>
 
@@ -294,7 +276,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => ''.e(route('profile.show')).'']); ?>
-                                    <?php echo e(__('Profile')); ?>
+                                    <?php echo e(__('Perfil')); ?>
 
                                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -338,7 +320,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => ''.e(route('logout')).'','@click.prevent' => '$root.submit();']); ?>
-                                        <?php echo e(__('Log Out')); ?>
+                                        <?php echo e(__('Cerrar Sesion')); ?>
 
                                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

@@ -12,4 +12,9 @@ class marca extends Model
     {
         return $this->hasMany(producto::class);
     }
+
+    public function proveedor()
+{
+    return $this->belongsTo(Proveedor::class, 'marca_id');
+}
 }

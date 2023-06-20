@@ -18,20 +18,19 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="categoria">Categoría:</label>
-                    <select name="categoria" id="categoria" required
-                        class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
-                        <option selected disabled>Elige una categoria</option>
+                    <select name="categoria" id="categoria" required class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
+                        <option disabled>Elige una categoría</option>
                         <?php $__empty_1 = true; $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <option value="<?php echo e($c->id); ?>"><?php echo e($c->categoria); ?></option>
+                            <option value="<?php echo e($c->id); ?>" <?php echo e($p->categoria_id == $c->id ? 'selected' : ''); ?>><?php echo e($c->categoria); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                            <option disabled>Registra una nueva categoria</option>
+                            <option disabled>Registra una nueva categoría</option>
                         <?php endif; ?>
                     </select>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="foto">Foto:</label>
-                    <input type="file" name="foto" id="foto" 
+                    <input type="file" name="foto" id="foto"
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 
@@ -48,8 +47,8 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="cantidad">Cantidad:</label>
-                    <input type="number" name="cantidad" id="cantidad" required value="<?php echo e($p->cantidad); ?>"
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="stock_min">Stock minimo:</label>
+                    <input type="number" name="cantidad_min" id="stock_min" required value="<?php echo e($p->stock_min); ?>"
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 

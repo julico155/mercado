@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\compra;
+use App\Models\DetalleCompra;
+use App\Models\marca;
 use App\Models\Pedido;
 use App\Models\pedido_detalle;
+use App\Models\producto;
+use App\Models\proveedor;
+
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -13,18 +19,36 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
-        $pedido = pedido::where('cliente_id', $id)->first();
-        // dd($id);
-        // dd($carrito);
-        $pedido_detalle = pedido_detalle::where('carrito_id', $pedido->id)
-        ->join('productos','productos.id','=','producto_detalle.producto_id')
-        ->join('users','users.id','=','productos.id_propietario')
-        ->select('detalle_carritos.*','productos.nombre','productos.descripcion','productos.imagen','users.name as empresa')
-        ->get();
+        // $id = auth()->user()->id;
+        // $pedido = pedido::where('cliente_id', $id)->first();
+        // // dd($id);
+        // // dd($carrito);
+        // $pedido_detalle = pedido_detalle::where('carrito_id', $pedido->id)
+        // ->join('productos','productos.id','=','producto_detalle.producto_id')
+        // ->join('users','users.id','=','productos.id_propietario')
+        // ->select('detalle_carritos.*','productos.nombre','productos.descripcion','productos.imagen','users.name as empresa')
+        // ->get();
 
+        $arrayProductos = [];
+        // $productos = producto::where('stock','<=', 'stock_min')->get();
+        $productos = Producto::whereRaw('stock <= stock_min')->get();
 
-        return view('VistaPedido.index', compact('pedido_detalle', 'pedido'));
+        foreach ($productos as $p) {
+            $marca = marca::where('id', $p->marca_id)->first();
+            $proveedor = proveedor::where('marca_id', $marca->id)->first();
+
+            $arrayProductos[] = [
+                "producto_id"    => $p->id,
+                "producto_nombre"    => $p->nombre,
+                "producto_descripcion"    => $p->descripcion,
+                "producto_stock"     => $p->stock,
+                "producto_stock_min" => $p->stock_min,
+                "marca"              => $marca->nombre,
+                "proveedor"          => $proveedor->Nombre,
+            ];
+        }
+
+        return view('VistaPedido.index', compact('arrayProductos'));
     }
 
     /**
@@ -40,7 +64,37 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $compra = Compra::create([
+            // Agregar los atributos de la compra
+        ]);
+        $compra->save();
+        $stocks = $request->input('stock');
+        $id = $request->input('id_producto');
+        $prov = $request->input('nombre_proveedor');
+        $contador = 0;
+        foreach ($stocks as $cantidad) {
+            // dd($id[$contador]);
+            $proveedor = proveedor::where('Nombre','=',$prov[$contador])->first();
+            $producto = Producto::where('id','=',$id[$contador])->first();
+            $detallecompra = DetalleCompra::create([
+                'compra_id' => $compra->id,
+                'producto_id' => $producto->id,
+                'cantidad'  => $cantidad,
+                'proveedor_id' => $proveedor->id,
+        ]);
+
+            $detallecompra->save();
+            $producto->stock += $cantidad;
+            // dd($producto);
+            $producto->save();
+            $contador++;
+        }
+
+        // Aquí puedes realizar otras acciones relacionadas con el pedido,
+        // como almacenar la información en la base de datos, enviar notificaciones, etc.
+
+        return redirect()->route('producto.index')->with('success', 'Pedido solicitado correctamente.');
     }
 
     /**
