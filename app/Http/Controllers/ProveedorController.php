@@ -66,8 +66,11 @@ class ProveedorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(proveedor $proveedor)
+    public function destroy(request $id)
     {
-        //
+
+        $prov = proveedor::find($id);
+        $prov->delete();
+        return redirect()->route('proveedor.index');
     }
 }
