@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="w-full lg:w-1/2 mx-auto mb-4">
         <h2 class="text-2xl font-bold text-green-500 my-4 ml-4">

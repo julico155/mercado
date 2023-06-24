@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container mx-auto px-4 my-4">
         <div class="flex flex-col items-center sm:flex-row">

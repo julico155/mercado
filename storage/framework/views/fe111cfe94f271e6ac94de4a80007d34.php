@@ -1,8 +1,10 @@
+
+
 <?php $__env->startSection('cliente'); ?>
     <div class="container mx-auto">
         <div class="overflow-x-auto mx-auto bg-white shadow-md rounded px-8 py-6 mt-8">
             <div class="text-center">
-                <a href="<?php echo e(route('empresa.show', $u->id)); ?>">
+                <a href="<?php echo e(route('dashboard')); ?>">
                     <h2 class="text-2xl text-green-500 font-bold mb-6">JLY COMPANY</h2>
                 </a>
             </div>
@@ -24,7 +26,7 @@
                             <div class="flex justify-start">
                                 <input type="number" name="cantidad" placeholder="Cantidad" required min="1" max="<?php echo e($p->stock); ?>" class="border border-gray-300 px-4 py-2 rounded-l-md w-32">
                                 <button class="bg-green-500 text-white px-4 py-2 rounded-r-md">Agregar al Carrito</button>
-                              </div>
+                            </div>
                         </form>
                     <?php else: ?>
                         <p class="text-red-600 bg-red-100 border border-red-600 rounded-md px-4 py-2 mb-4">Inicia sesión para

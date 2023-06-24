@@ -50,6 +50,8 @@ class MarcaController extends Controller
     public function edit(marca $marca)
     {
         //
+        $m = marca::find($marca->id);
+        return view('VistaMarca.edit', compact('m'));
     }
 
     /**

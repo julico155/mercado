@@ -53,6 +53,7 @@ class ProveedorController extends Controller
     public function edit(proveedor $proveedor)
     {
         //
+        return view('vistaproveedor.edit');
     }
 
     /**

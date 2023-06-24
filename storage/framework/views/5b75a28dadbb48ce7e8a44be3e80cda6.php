@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
 <form action="<?php echo e(route('user.update', $u->id)); ?>" method="POST" enctype="multipart/form-data"
     class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

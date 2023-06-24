@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <?php if($categorias->isEmpty()): ?>
         <div class="w-full lg:w-1/2 mx-auto mb-4">
