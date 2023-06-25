@@ -9,7 +9,7 @@
                     <h2 class="text-lg font-bold">Solicitar Pedido</h2>
                 </div>
                 <table class="w-full mb-8">
-                    <thead class="bg-gray-500 text-white">
+                    <thead class="bg-green-500 text-white">
                         <tr>
                             <th class="py-2">Producto</th>
                             <th class="py-2">Descripción</th>
