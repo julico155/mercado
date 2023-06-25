@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <div class="w-full lg:w-1/2 mx-auto mb-4">
         <h2 class="text-2xl font-bold text-green-500 my-4 ml-4">
@@ -47,7 +45,7 @@
                             </td>
 
                             <td class="text-center py-2 px-4 border-b">
-                                <a href="<?php echo e(route('categoria.edit', $categoria->id)); ?>"
+                                <a href="<?php echo e(route('categoria.edit', $categoria)); ?>"
                                     class="text-green-500 hover:text-green-700 mr-2">
                                     Edit
                                 </a>

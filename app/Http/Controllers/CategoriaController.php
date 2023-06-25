@@ -45,18 +45,22 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(categoria $categoria)
+    public function edit($id)
     {
-        $c = categoria::find($categoria->id);
+        $c = categoria::find($id);
+
         return view('VistaCategoria.edit', compact('c'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, categoria $categoria)
+    public function update(Request $request,  $id)
     {
-        //
+        $m = categoria::where('id', $id)->first();
+        $m->categoria = $request->categoria;
+        $m->save();
+        return redirect()->route('categoria.index');
     }
 
     /**

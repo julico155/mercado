@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <div class="container mx-auto px-4 my-4">
         <div class="flex flex-col items-center sm:flex-row">
@@ -21,37 +19,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $__empty_1 = true; $__currentLoopData = $proveedores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proveedor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                        <?php $__empty_1 = true; $__currentLoopData = $arrayProveedores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        <?php echo e($proveedor->id); ?></p>
+                                        <?php echo e($p['proveedor_id']); ?></p>
                                 </td>
 
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        <?php echo e($proveedor->Nombre); ?>
+                                        <?php echo e($p['producto_Nombre']); ?>
 
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        <?php echo e($proveedor->Telefono); ?>
+                                        <?php echo e($p['producto_Telefono']); ?>
 
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        <?php echo e($proveedor->marca_id); ?>
+                                        <?php echo e($p['marca']); ?>
 
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
-                                    <a href="<?php echo e(route('proveedor.edit', $proveedor->id)); ?>"
+                                    <a href="<?php echo e(route('proveedor.edit', $p['proveedor_id'])); ?>"
                                         class="text-green-500 hover:text-green-700 mr-2">
                                         Edit
                                     </a>
-                                    <form action="<?php echo e(route('proveedor.destroy', $proveedor->id)); ?>" method="POST"
+                                    <form action="<?php echo e(route('proveedor.destroy', $p['proveedor_id'])); ?>" method="POST"
                                         class="inline-block">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>

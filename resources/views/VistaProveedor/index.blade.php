@@ -21,34 +21,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($proveedores as $proveedor)
+                        @forelse ($arrayProveedores as $p)
                             <tr>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        {{ $proveedor->id }}</p>
+                                        {{ $p['proveedor_id'] }}</p>
                                 </td>
 
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        {{ $proveedor->Nombre }}
+                                        {{ $p['producto_Nombre'] }}
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        {{ $proveedor->Telefono }}
+                                        {{ $p['producto_Telefono'] }}
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
                                     <p class="font-semibold text-left">
-                                        {{ $proveedor->marca_id}}
+                                        {{ $p['marca']}}
                                     </p>
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
-                                    <a href="{{ route('proveedor.edit', $proveedor->id) }}"
+                                    <a href="{{ route('proveedor.edit', $p['proveedor_id']) }}"
                                         class="text-green-500 hover:text-green-700 mr-2">
                                         Edit
                                     </a>
-                                    <form action="{{ route('proveedor.destroy', $proveedor->id) }}" method="POST"
+                                    <form action="{{ route('proveedor.destroy', $p['proveedor_id']) }}" method="POST"
                                         class="inline-block">
                                         @csrf
                                         @method('DELETE')

@@ -56,10 +56,13 @@ class MarcaController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */
+     *///
     public function update(Request $request, marca $marca)
     {
-        //
+        $m = marca::where('id', $marca->id)->first();
+        $m->nombre = $request->nombre;
+        $m->save();
+        return redirect()->route('marca.index');
     }
 
     /**

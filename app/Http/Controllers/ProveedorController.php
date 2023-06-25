@@ -13,7 +13,19 @@ class ProveedorController extends Controller
     public function index()
     {
         $proveedores = proveedor::get();
-        return view('VistaProveedor.index', compact('proveedores'));
+        $arrayProveedores = [];
+        foreach ($proveedores as $p) {
+            $marca = marca::where('id', $p->marca_id)->first();
+
+            $arrayProveedores[] = [
+                "proveedor_id"    => $p->id,
+                "producto_Nombre"    => $p->Nombre,
+                "producto_Telefono"    => $p->Telefono,
+                "marca"              => $marca->nombre,
+            ];
+        }
+
+        return view('VistaProveedor.index', compact('arrayProveedores'));
     }
 
     /**
@@ -50,24 +62,31 @@ class ProveedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(proveedor $proveedor)
+    public function edit( $id)
     {
         //
-        return view('vistaproveedor.edit');
+        $p = proveedor::find($id);
+        $marcas = marca::get();
+        return view('vistaproveedor.edit', compact('p','marcas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, proveedor $proveedor)
+    public function update(Request $request, $id)
     {
-        //
+        $p = proveedor::where('id', $id)->first();
+        $p->Nombre = $request->nombre;
+        $p->Telefono = $request->telefono;
+        $p->marca_id = $request->marca;
+        $p->save();
+        return redirect()->route('proveedor.index')->with('success', 'Proveedor Actualizado con Exito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(request $id)
+    public function destroy($id)
     {
 
         $prov = proveedor::find($id);

@@ -46,7 +46,7 @@
                             </td>
 
                             <td class="text-center py-2 px-4 border-b">
-                                <a href="{{ route('categoria.edit', $categoria->id) }}"
+                                <a href="{{ route('categoria.edit', $categoria) }}"
                                     class="text-green-500 hover:text-green-700 mr-2">
                                     Edit
                                 </a>
