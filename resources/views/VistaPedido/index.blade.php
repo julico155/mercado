@@ -36,7 +36,15 @@
                                     <input type="number" name="id_producto[]" class="hidden" value="{{$p['producto_id']}}">
                                     <input type="text" name="nombre_proveedor[]" class="hidden" value="{{$p['proveedor']}}">
                                 </td>
-                                <td class="py-2 text-center">{{ $p['proveedor'] }}</td>
+                                <td class="py-2 text-center">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="proveedor"></label>
+                                    <select name="proveedor[]" id="proveedor" required class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
+                                        <option selected disabled>Elige un Proveedor</option>
+                                        @foreach ($p['proveedor'] as $proveedor)
+                                            <option value="{{ $proveedor->id }}">{{ $proveedor->Nombre }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
 
 
                             </tr>

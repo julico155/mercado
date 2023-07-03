@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('cliente'); ?>
     <div class="my-8 mx-8">
         <div class="container mx-auto px-4">
@@ -37,7 +35,15 @@
                                     <input type="number" name="id_producto[]" class="hidden" value="<?php echo e($p['producto_id']); ?>">
                                     <input type="text" name="nombre_proveedor[]" class="hidden" value="<?php echo e($p['proveedor']); ?>">
                                 </td>
-                                <td class="py-2 text-center"><?php echo e($p['proveedor']); ?></td>
+                                <td class="py-2 text-center">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="proveedor"></label>
+                                    <select name="proveedor[]" id="proveedor" required class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
+                                        <option selected disabled>Elige un Proveedor</option>
+                                        <?php $__currentLoopData = $p['proveedor']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proveedor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($proveedor->id); ?>"><?php echo e($proveedor->Nombre); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </td>
 
 
                             </tr>

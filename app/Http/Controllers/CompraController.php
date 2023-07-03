@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\compra;
 use Illuminate\Http\Request;
+use App\Models\DetalleCompra;
+use App\Models\producto;
+use App\Models\proveedor;
+
 
 class CompraController extends Controller
 {
@@ -12,7 +16,8 @@ class CompraController extends Controller
      */
     public function index()
     {
-        //
+        $c = compra::get();
+        return view('VistaCompra.index',compact('c'));
     }
 
     /**
@@ -62,4 +67,29 @@ class CompraController extends Controller
     {
         //
     }
+
+    public function notaCompra($id)
+    {
+
+        $com = DetalleCompra::where('compra_id', $id)->get();
+        $compras = [];
+        $contador = 0;
+        foreach ($com as $c) {
+            $p = producto::where('id', $c->producto_id)->first();
+            $pro = Proveedor::where('id', $c->proveedor_id)->first();
+            $contador = $contador + 1;
+            $compras[] = [
+                "fecha"    => $c->created_at,
+                "cantidad"    => $c->cantidad,
+                "producto_nombre"    => $p->nombre,
+                "producto_descripcion"     =>$p->descripcion,
+                "proveedor" => $pro->Nombre,
+                "contador" => $contador
+            ];
+        // dd($ventas);
+        }
+
+        return view('VistaCompra.nota', compact('compras'));
+    }
+
 }

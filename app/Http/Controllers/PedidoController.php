@@ -35,8 +35,7 @@ class PedidoController extends Controller
 
         foreach ($productos as $p) {
             $marca = marca::where('id', $p->marca_id)->first();
-            $proveedor = proveedor::where('marca_id', $marca->id)->first();
-
+            $proveedores = Proveedor::where('marca_id', $marca->id)->get();
             $arrayProductos[] = [
                 "producto_id"    => $p->id,
                 "producto_nombre"    => $p->nombre,
@@ -44,7 +43,7 @@ class PedidoController extends Controller
                 "producto_stock"     => $p->stock,
                 "producto_stock_min" => $p->stock_min,
                 "marca"              => $marca->nombre,
-                "proveedor"          => $proveedor->Nombre,
+                "proveedor"          => $proveedores,
             ];
         }
 
@@ -71,11 +70,11 @@ class PedidoController extends Controller
         $compra->save();
         $stocks = $request->input('stock');
         $id = $request->input('id_producto');
-        $prov = $request->input('nombre_proveedor');
+        $prov = $request->input('proveedor');
         $contador = 0;
         foreach ($stocks as $cantidad) {
             // dd($id[$contador]);
-            $proveedor = proveedor::where('Nombre','=',$prov[$contador])->first();
+            $proveedor = proveedor::where('id','=',$prov[$contador])->first();
             $producto = Producto::where('id','=',$id[$contador])->first();
             $detallecompra = DetalleCompra::create([
                 'compra_id' => $compra->id,

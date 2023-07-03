@@ -67,7 +67,7 @@
                                 x-transition:leave-start="opacity-100 transform scale-100"
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
-                                <li><a href="#"
+                                <li><a href="{{ route('compra.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Compra(No disponible)') }}</a>
                                 </li>
                                 <li><a href="{{ route('pedido.index') }}"
