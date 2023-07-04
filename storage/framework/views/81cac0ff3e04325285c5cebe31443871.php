@@ -12,7 +12,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('empresa')): ?>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                     <?php echo $__env->yieldContent('content'); ?>
                 <?php endif; ?>
                 
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    
+
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>

@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                     @endcan
-                    @can('admin')
+                    @can('vendedor')
                         <!-- Gestion de Compra -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -79,7 +79,7 @@
                             </ul>
                         </div>
                     @endcan
-                    @can('cliente')
+                    @can('vendedor')
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">

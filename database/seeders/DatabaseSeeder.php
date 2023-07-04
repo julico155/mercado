@@ -34,11 +34,11 @@ class DatabaseSeeder extends Seeder
     {
         $dev            = Role::create(['name' => 'dev']);
         $cliente        = Role::create(['name' => 'cliente']);
-        $empresa    = Role::create(['name' => 'empresa']);
+        $empresa    = Role::create(['name' => 'vendedor']);
         ////////////ADMIN
         Permission::create(['name' => 'admin'])->syncRoles([$dev]);
         ////////////ROLES
-        Permission::create(['name' => 'empresa'])->syncRoles([$dev, $empresa]);
+        Permission::create(['name' => 'vendedor'])->syncRoles([$dev, $empresa]);
         Permission::create(['name' => 'cliente'])->syncRoles([$dev, $cliente]);
         ////////////
     }
@@ -63,11 +63,11 @@ class DatabaseSeeder extends Seeder
 
         $user = new User();
         $user->id = 2;
-        $user->name =  'empresa';
-        $user->email =  'empresa@correo.com';
+        $user->name =  'vendedor';
+        $user->email =  'vendedor@correo.com';
         $user->password = bcrypt('password');
         $user->profile_photo_path = 'img/default.png';
-        $user->assignRole('empresa');
+        $user->assignRole('vendedor');
         $user->save();
 
         $carrito = new carrito();

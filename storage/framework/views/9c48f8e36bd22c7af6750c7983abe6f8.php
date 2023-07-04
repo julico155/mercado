@@ -79,7 +79,7 @@
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('vendedor')): ?>
                         <!-- Gestion de Compra -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -121,7 +121,7 @@
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('vendedor')): ?>
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">

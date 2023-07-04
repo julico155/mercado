@@ -8,7 +8,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                @can('empresa')
+                @can('admin')
                     @yield('content')
                 @endcan
                 {{-- @can('cliente') --}}
@@ -19,5 +19,5 @@
         </div>
     </div>
 
-    
+
 </x-app-layout>
