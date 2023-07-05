@@ -1,4 +1,4 @@
-<?php $__env->startSection('cliente'); ?>
+<?php $__env->startSection('compra'); ?>
 <div class="container mx-auto px-4 mt-8">
     <table class="min-w-full border border-gray-200 rounded">
         <thead>

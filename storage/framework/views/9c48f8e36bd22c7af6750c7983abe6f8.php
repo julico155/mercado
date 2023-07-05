@@ -157,9 +157,7 @@
                                 <li><a href="<?php echo e(route('carrito.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Carrito de Venta')); ?></a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Realizar Factura(No disponible)')); ?></a>
-                                </li>
+                                
                             </ul>
                         </div>
                     <?php endif; ?>
