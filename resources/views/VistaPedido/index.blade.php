@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('cliente')
+@section('compra')
     <div class="my-8 mx-8">
         <div class="container mx-auto px-4">
             <form action="{{ route('pedido.store') }}" method="POST">

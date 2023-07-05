@@ -1,6 +1,4 @@
-
-
-<?php $__env->startSection('cliente'); ?>
+<?php $__env->startSection('usuario'); ?>
     <div class="my-8 mx-8">
         <div class="container mx-auto">
             <div class="overflow-x-auto mx-auto bg-white shadow-md rounded px-8 py-6 mt-8">
@@ -24,6 +22,10 @@
                                 <a href="<?php echo e(route('user.edit', $user->id)); ?>"
                                     class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
                                     Editar
+                                </a>
+                                <a href="<?php echo e(route('user.assign_role', $user->id)); ?>"
+                                    class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">
+                                    Roles
                                 </a>
                             </td>
                         </tr>

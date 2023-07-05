@@ -76,6 +76,7 @@ class PedidoController extends Controller
             // dd($id[$contador]);
             $proveedor = proveedor::where('id','=',$prov[$contador])->first();
             $producto = Producto::where('id','=',$id[$contador])->first();
+            if($cantidad > 0){
             $detallecompra = DetalleCompra::create([
                 'compra_id' => $compra->id,
                 'producto_id' => $producto->id,
@@ -84,6 +85,7 @@ class PedidoController extends Controller
         ]);
 
             $detallecompra->save();
+        }
             $producto->stock += $cantidad;
             // dd($producto);
             $producto->save();

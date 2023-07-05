@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -71,4 +71,23 @@ class UserController extends Controller
         $user = user::find($id);
         $user->delete();
     }
+
+    public function assignRole($userId)
+{
+    $user = User::findOrFail($userId);
+    $roles = Role::all();
+
+    return view('VistaUser.assign_role', compact('user', 'roles'));
+}
+public function updateRole(Request $request, $userId)
+{
+    $user = User::findOrFail($userId);
+    $role = $request->input('role');
+
+    $user->syncRoles([$role]);
+
+    return redirect()->route('user.index');
+}
+
+
 }

@@ -34,12 +34,13 @@ class DatabaseSeeder extends Seeder
     {
         $dev            = Role::create(['name' => 'dev']);
         $cliente        = Role::create(['name' => 'cliente']);
-        $empresa    = Role::create(['name' => 'vendedor']);
+        $vendedor    = Role::create(['name' => 'vendedor']);
         ////////////ADMIN
-        Permission::create(['name' => 'admin'])->syncRoles([$dev]);
+        Permission::create(['name' => 'AdmUsuario'])->syncRoles([$dev]);
         ////////////ROLES
-        Permission::create(['name' => 'vendedor'])->syncRoles([$dev, $empresa]);
-        Permission::create(['name' => 'cliente'])->syncRoles([$dev, $cliente]);
+        Permission::create(['name' => 'AdmCompra'])->syncRoles([$dev, $vendedor]);
+        Permission::create(['name' => 'AdmVenta'])->syncRoles([$dev, $vendedor, $cliente]);
+        Permission::create(['name' => 'AdmProductos'])->syncRoles([$dev]);
         ////////////
     }
 
