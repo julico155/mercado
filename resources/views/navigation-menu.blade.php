@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-application-mark class="block h-9 w-auto" /> --}}
                         <div class="flex justify-center ">
-                            <img class="block h-14 w-auto" src="{{ asset('img/jly-logo.png') }}" alt="Jly Company"
+                            <img class="block h-14 w-auto" src="{{ asset('img/Jly-logo.png') }}" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -101,7 +101,7 @@
                                 <li><a href="{{ route('carrito.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Carrito de Venta') }}</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     @endcan
