@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CompraController;
@@ -54,7 +55,9 @@ Route::put('rol/{role}/update-permissions', [Roles::class, 'updatePermissions'])
 Route::get('user/{user}/assign-role', [UserController::class, 'assignRole'])->name('user.assign_role');
 Route::put('user/{user}/update-role', [UserController::class, 'updateRole'])->name('user.update_role');
 
+Route::resource('bitacora',BitacoraController::class);
 
+Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
 
 Route::get('notaVenta{id}', [VentaController::class, 'notaVenta'])->name('notaVenta');
 Route::get('notaCompra{id}', [CompraController::class, 'notaCompra'])->name('notaCompra');

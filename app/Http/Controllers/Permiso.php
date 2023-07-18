@@ -31,6 +31,9 @@ class Permiso extends Controller
         $permission = new Permission();
     $permission->name = $request->input('permiso');
     $permission->save();
+    activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se creo un permiso : ' . $permission->name);
     return redirect()->route('permisos.index');
     }
 
@@ -59,6 +62,9 @@ class Permiso extends Controller
         $permission = Permission::findOrFail($id);
         $permission->name = $request->input('permiso');
         $permission->save();
+        activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se actualizo un permiso : ' . $permission->name);
         return redirect()->route('permisos.index');
     }
 
@@ -69,6 +75,9 @@ class Permiso extends Controller
     {
         $permission = Permission::findOrFail($id);
     $permission->delete();
+    activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se elimino un permiso : ' . $permission->name);
     return redirect()->route('permisos.index');
     }
 }

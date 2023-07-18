@@ -1,6 +1,4 @@
-
-
-<?php $__env->startSection('cliente'); ?>
+<?php $__env->startSection('venta'); ?>
     <div class="container mx-auto">
         <div class="overflow-x-auto mx-auto bg-white shadow-md rounded px-8 py-6 mt-8">
             <div class="text-center">

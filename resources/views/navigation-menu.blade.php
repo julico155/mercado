@@ -48,6 +48,9 @@
                                 <li><a href="{{ route('permisos.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Privilegios') }}</a>
                                 </li>
+                                <li><a href="{{ route('bitacora.index') }}"
+                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Bitacora') }}</a>
+                            </li>
                             </ul>
                         </div>
                     @endcan

@@ -72,6 +72,9 @@ class VentaController extends Controller
             $c->save();
             // return redirect()->route('venta.index')->with('success', 'Compra realizada con éxito');
         }
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Realizo una compra ' );
         return redirect()->route('venta.index')->with('success', 'Compra realizada con éxito');
     }
 

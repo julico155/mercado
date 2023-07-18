@@ -91,6 +91,11 @@ class PedidoController extends Controller
             $producto->save();
             $contador++;
         }
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se realizo un pedido de compra al proveedor ' );
+
+        return redirect()->route('categoria.index');
 
         // Aquí puedes realizar otras acciones relacionadas con el pedido,
         // como almacenar la información en la base de datos, enviar notificaciones, etc.

@@ -48,6 +48,9 @@ class UserController extends Controller
     {
         $u = user::find($id);
         return view('VistaUser.edit', compact('u'));
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se edito el usuario : ' . $u->name);
     }
 
     /**
@@ -59,6 +62,9 @@ class UserController extends Controller
         $u->name = $request->name;
         $u->email = $request->email;
         $u->save();
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se edito el usuario : ' . $u->name);
         return redirect()->route('user.index')->with('success', 'Producto Actualizado con Exito');
 
     }
@@ -70,6 +76,9 @@ class UserController extends Controller
     {
         $user = user::find($id);
         $user->delete();
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se elimino el usuario : ' . $user->name);
     }
 
     public function assignRole($userId)
@@ -85,7 +94,9 @@ public function updateRole(Request $request, $userId)
     $role = $request->input('role');
 
     $user->syncRoles([$role]);
-
+    activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se actualizo el rol del usuario : ' . $user->name);
     return redirect()->route('user.index');
 }
 

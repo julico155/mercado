@@ -8,7 +8,7 @@
                     <a href="<?php echo e(route('dashboard')); ?>">
                         
                         <div class="flex justify-center ">
-                            <img class="block h-14 w-auto" src="<?php echo e(asset('img/jly-logo.png')); ?>" alt="Jly Company"
+                            <img class="block h-14 w-auto" src="<?php echo e(asset('img/Jly-logo.png')); ?>" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -76,6 +76,9 @@
                                 <li><a href="<?php echo e(route('permisos.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Privilegios')); ?></a>
                                 </li>
+                                <li><a href="<?php echo e(route('bitacora.index')); ?>"
+                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Bitacora')); ?></a>
+                            </li>
                             </ul>
                         </div>
                     <?php endif; ?>
@@ -157,7 +160,7 @@
                                 <li><a href="<?php echo e(route('carrito.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Carrito de Venta')); ?></a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     <?php endif; ?>
