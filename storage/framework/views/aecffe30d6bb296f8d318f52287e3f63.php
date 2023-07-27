@@ -1,4 +1,4 @@
-<?php $__env->startSection('cliente'); ?>
+<?php $__env->startSection('compra'); ?>
     <?php
         use Carbon\Carbon;
     ?>

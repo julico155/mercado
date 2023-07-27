@@ -1,4 +1,4 @@
-<?php $__env->startSection('cliente'); ?>
+<?php $__env->startSection('compra'); ?>
     <div class="my-8 mx-8">
         <div class="container mx-auto px-4">
             <form action="<?php echo e(route('pedido.store')); ?>" method="POST">

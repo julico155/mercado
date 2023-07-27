@@ -48,7 +48,12 @@ class ProveedorController extends Controller
         $p->telefono = $request->telefono;
         $p->marca_id = $request->marca;
         $p->save();
+
+        activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se creo un proveedor : ' . $p->nombre);
         return redirect()->route('proveedor.index');
+
     }
 
     /**
@@ -80,6 +85,9 @@ class ProveedorController extends Controller
         $p->Telefono = $request->telefono;
         $p->marca_id = $request->marca;
         $p->save();
+        activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se actualizo un proveedor : ' . $p->nombre);
         return redirect()->route('proveedor.index')->with('success', 'Proveedor Actualizado con Exito');
     }
 
@@ -91,6 +99,9 @@ class ProveedorController extends Controller
 
         $prov = proveedor::find($id);
         $prov->delete();
+        activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se elimino un proveedor : ' . $prov->nombre);
         return redirect()->route('proveedor.index');
     }
 }

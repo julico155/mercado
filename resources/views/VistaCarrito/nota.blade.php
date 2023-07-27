@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('cliente')
+@section('venta')
     @php
         use Carbon\Carbon;
     @endphp

@@ -34,12 +34,13 @@ class DatabaseSeeder extends Seeder
     {
         $dev            = Role::create(['name' => 'dev']);
         $cliente        = Role::create(['name' => 'cliente']);
-        $empresa    = Role::create(['name' => 'empresa']);
+        $vendedor    = Role::create(['name' => 'vendedor']);
         ////////////ADMIN
-        Permission::create(['name' => 'admin'])->syncRoles([$dev]);
+        Permission::create(['name' => 'AdmUsuario'])->syncRoles([$dev]);
         ////////////ROLES
-        Permission::create(['name' => 'empresa'])->syncRoles([$dev, $empresa]);
-        Permission::create(['name' => 'cliente'])->syncRoles([$dev, $cliente]);
+        Permission::create(['name' => 'AdmCompra'])->syncRoles([$dev, $vendedor]);
+        Permission::create(['name' => 'AdmVenta'])->syncRoles([$dev, $vendedor, $cliente]);
+        Permission::create(['name' => 'AdmProductos'])->syncRoles([$dev]);
         ////////////
     }
 
@@ -63,11 +64,11 @@ class DatabaseSeeder extends Seeder
 
         $user = new User();
         $user->id = 2;
-        $user->name =  'empresa';
-        $user->email =  'empresa@correo.com';
+        $user->name =  'vendedor';
+        $user->email =  'vendedor@correo.com';
         $user->password = bcrypt('password');
         $user->profile_photo_path = 'img/default.png';
-        $user->assignRole('empresa');
+        $user->assignRole('vendedor');
         $user->save();
 
         $carrito = new carrito();

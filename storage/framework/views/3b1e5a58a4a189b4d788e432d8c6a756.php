@@ -1,4 +1,4 @@
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('compra'); ?>
     <div class="container mx-auto px-4 my-4">
         <div class="flex flex-col items-center sm:flex-row">
             <div class="mt-4 sm:ml-4">

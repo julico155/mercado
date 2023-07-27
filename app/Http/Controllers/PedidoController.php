@@ -76,6 +76,7 @@ class PedidoController extends Controller
             // dd($id[$contador]);
             $proveedor = proveedor::where('id','=',$prov[$contador])->first();
             $producto = Producto::where('id','=',$id[$contador])->first();
+            if($cantidad > 0){
             $detallecompra = DetalleCompra::create([
                 'compra_id' => $compra->id,
                 'producto_id' => $producto->id,
@@ -84,11 +85,17 @@ class PedidoController extends Controller
         ]);
 
             $detallecompra->save();
+        }
             $producto->stock += $cantidad;
             // dd($producto);
             $producto->save();
             $contador++;
         }
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se realizo un pedido de compra al proveedor ' );
+
+        return redirect()->route('categoria.index');
 
         // Aquí puedes realizar otras acciones relacionadas con el pedido,
         // como almacenar la información en la base de datos, enviar notificaciones, etc.

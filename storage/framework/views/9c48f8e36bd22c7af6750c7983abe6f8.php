@@ -8,7 +8,7 @@
                     <a href="<?php echo e(route('dashboard')); ?>">
                         
                         <div class="flex justify-center ">
-                            <img class="block h-14 w-auto" src="<?php echo e(asset('img/jly-logo.png')); ?>" alt="Jly Company"
+                            <img class="block h-14 w-auto" src="<?php echo e(asset('img/Jly-logo.png')); ?>" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -37,7 +37,7 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
 
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('AdmUsuario')): ?>
                         <!-- Gestion de Usuarios -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -70,16 +70,19 @@
                                 <li><a href="<?php echo e(route('user.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Usuarios')); ?></a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Rol(No disponible)')); ?></a>
+                                <li><a href="<?php echo e(route('rol.index')); ?>"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Rol')); ?></a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Privilegios(No disponible)')); ?></a>
+                                <li><a href="<?php echo e(route('permisos.index')); ?>"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Privilegios')); ?></a>
                                 </li>
+                                <li><a href="<?php echo e(route('bitacora.index')); ?>"
+                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Bitacora')); ?></a>
+                            </li>
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('AdmCompra')): ?>
                         <!-- Gestion de Compra -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -110,7 +113,7 @@
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
                                 <li><a href="<?php echo e(route('compra.index')); ?>"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Compra(No disponible)')); ?></a>
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Compra')); ?></a>
                                 </li>
                                 <li><a href="<?php echo e(route('pedido.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Gestionar Pedido')); ?></a>
@@ -121,7 +124,7 @@
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('AdmVenta')): ?>
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -157,13 +160,11 @@
                                 <li><a href="<?php echo e(route('carrito.index')); ?>"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Carrito de Venta')); ?></a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><?php echo e(__('Realizar Factura(No disponible)')); ?></a>
-                                </li>
+
                             </ul>
                         </div>
                     <?php endif; ?>
-                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('AdmProductos')): ?>
                         <!-- Gestion de Insumos -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">

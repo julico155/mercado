@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-application-mark class="block h-9 w-auto" /> --}}
                         <div class="flex justify-center ">
-                            <img class="block h-14 w-auto" src="{{ asset('img/jly-logo.png') }}" alt="Jly Company"
+                            <img class="block h-14 w-auto" src="{{ asset('img/Jly-logo.png') }}" alt="Jly Company"
                                 width="30%">
                         </div>
                     </a>
@@ -23,7 +23,7 @@
                         {{ __('Inicio') }}
                     </x-nav-link>
 
-                    @can('admin')
+                    @can('AdmUsuario')
                         <!-- Gestion de Usuarios -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -42,16 +42,19 @@
                                 <li><a href="{{ route('user.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Usuarios') }}</a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Rol(No disponible)') }}</a>
+                                <li><a href="{{ route('rol.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Rol') }}</a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Privilegios(No disponible)') }}</a>
+                                <li><a href="{{ route('permisos.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Privilegios') }}</a>
                                 </li>
+                                <li><a href="{{ route('bitacora.index') }}"
+                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Bitacora') }}</a>
+                            </li>
                             </ul>
                         </div>
                     @endcan
-                    @can('admin')
+                    @can('AdmCompra')
                         <!-- Gestion de Compra -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -68,7 +71,7 @@
                                 x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
                                 @mouseleave="isOpen = false">
                                 <li><a href="{{ route('compra.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Compra(No disponible)') }}</a>
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Compra') }}</a>
                                 </li>
                                 <li><a href="{{ route('pedido.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Pedido') }}</a>
@@ -79,7 +82,7 @@
                             </ul>
                         </div>
                     @endcan
-                    @can('cliente')
+                    @can('AdmVenta')
                         <!-- Gestion de Venta -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">
@@ -101,13 +104,11 @@
                                 <li><a href="{{ route('carrito.index') }}"
                                         class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Carrito de Venta') }}</a>
                                 </li>
-                                <li><a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Realizar Factura(No disponible)') }}</a>
-                                </li>
+
                             </ul>
                         </div>
                     @endcan
-                    @can('admin')
+                    @can('AdmProductos')
                         <!-- Gestion de Insumos -->
                         <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
                             @mouseleave="isOpen = false">

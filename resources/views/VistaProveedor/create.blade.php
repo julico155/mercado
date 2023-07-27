@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('content')
+@section('compra')
     @if ($marcas->isEmpty())
         <div class="w-full lg:w-1/2 mx-auto mb-4">
             <p class="my-8 text-red-600 bg-red-100 border border-red-600 rounded-md px-4 py-2 mb-4">

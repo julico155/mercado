@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\categoria;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         $categorias = categoria::get();
@@ -28,9 +30,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new categoria();
+        $categoria = new Categoria();
         $categoria->categoria = $request->categoria;
         $categoria->save();
+
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se creó una nueva categoría: ' . $categoria->categoria);
+
         return redirect()->route('categoria.index');
     }
 
@@ -49,6 +56,7 @@ class CategoriaController extends Controller
     {
         $c = categoria::find($id);
 
+
         return view('VistaCategoria.edit', compact('c'));
     }
 
@@ -60,6 +68,11 @@ class CategoriaController extends Controller
         $m = categoria::where('id', $id)->first();
         $m->categoria = $request->categoria;
         $m->save();
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se edito una categoría: ' . $m->categoria);
+
+        return redirect()->route('categoria.index');
         return redirect()->route('categoria.index');
     }
 
@@ -67,17 +80,21 @@ class CategoriaController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-{
-    $categoria = Categoria::find($id);
+    {
+        $categoria = Categoria::find($id);
 
-    // Verificar si la categoría tiene productos relacionados
-    if ($categoria->productos()->exists()) {
-        return redirect()->route('categoria.index')->with('error', 'No se puede eliminar la categoría porque tiene productos asociados');
+        // Verificar si la categoría tiene productos relacionados
+        if ($categoria->productos()->exists()) {
+            return redirect()->route('categoria.index')->with('error', 'No se puede eliminar la categoría porque tiene productos asociados');
+        }
+
+        // Si no hay productos relacionados, se puede eliminar la categoría
+        $categoria->delete();
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Se elimino la categoría: ' . $categoria->categoria);
+
+        return redirect()->route('categoria.index');
+        return redirect()->route('categoria.index')->with('success', 'Categoría eliminada correctamente');
     }
-
-    // Si no hay productos relacionados, se puede eliminar la categoría
-    $categoria->delete();
-    return redirect()->route('categoria.index')->with('success', 'Categoría eliminada correctamente');
-}
-
 }

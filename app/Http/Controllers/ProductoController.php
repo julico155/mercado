@@ -66,6 +66,9 @@ class ProductoController extends Controller
         $p->stock_min = $request->cant_min;
         $p->save();
 
+        activity()
+    ->causedBy(auth()->user()) // El usuario responsable de la actividad
+    ->log('Se creo un producto : ' . $p->nombre);
 
         return redirect()->route('producto.index');
     }
@@ -116,8 +119,11 @@ class ProductoController extends Controller
         $p->categoria_id = $request->categoria;
         $p->imagen = $destino . $foto;
 
-        $p->save();
 
+        $p->save();
+        activity()
+        ->causedBy(auth()->user()) // El usuario responsable de la actividad
+        ->log('Se actualizo un producto : ' . $p->nombre);
         return redirect()->route('producto.index')->with('success', 'Producto Actualizado con Exito');
     }
 
@@ -131,7 +137,9 @@ class ProductoController extends Controller
 
         $p = producto::where('id',$id)->first();
         $p->delete();
-
+        activity()
+        ->causedBy(auth()->user()) // El usuario responsable de la actividad
+        ->log('Se elimino un producto : ' . $p->nombre);
         return redirect()->route('producto.index')->with('success', 'Producto Eliminado con Exito');;
     }
 }
