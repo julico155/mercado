@@ -52,7 +52,7 @@
                             <div>
                                 <!-- Botón Pagar -->
                                 
-                                <form action="<?php echo e(route('venta.store')); ?>" method="post">
+                                <form action="<?php echo e(route('session')); ?>" method="post">
                                     <?php echo csrf_field(); ?>
                                     <input type="text" name="carrito" hidden value="<?php echo e($carrito->id); ?>">
                                     <?php

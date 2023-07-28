@@ -47,7 +47,9 @@ Route::get('/dashboard', function () {
 Route::resource('permisos', Permiso::class);
 Route::resource('rol', Roles::class);
 Route::resource('empresa', EmpresaController::class);
+
 Route::resource('venta', VentaController::class);
+Route::post('/venta/store', 'VentaController@storee')->name('venta.storee');
 
 Route::get('rol/{role}/assign-permissions', [Roles::class, 'assignPermissions'])->name('rol.assign_permissions');
 Route::put('rol/{role}/update-permissions', [Roles::class, 'updatePermissions'])->name('rol.update_permissions');
@@ -70,6 +72,9 @@ Route::resource('proveedor',ProveedorController::class);
 Route::resource('compra', CompraController::class);
 Route::resource('carrito', CarritoController::class)->except(['update']);
 Route::put('carrito$carrito', [CarritoController::class, 'update'])->name('carrito.update');
+
+Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
+Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 
 Route::resource('pedido', PedidoController::class)->except(['update']);
 // Route::put('pedido$pedido', [PedidoController::class, 'update'])->name('.update');

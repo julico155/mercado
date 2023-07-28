@@ -87,7 +87,7 @@ class ProveedorController extends Controller
         $p->save();
         activity()
     ->causedBy(auth()->user()) // El usuario responsable de la actividad
-    ->log('Se actualizo un proveedor : ' . $p->nombre);
+    ->log('Se actualizo un proveedor : ' . $p->Nombre);
         return redirect()->route('proveedor.index')->with('success', 'Proveedor Actualizado con Exito');
     }
 

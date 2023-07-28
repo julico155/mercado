@@ -42,9 +42,11 @@ class VentaController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $c = carrito::where('id', $request->carrito)->first();
+
         // dd($c);
         $id = auth()->user()->id;
+        $c = carrito::where('cliente_id', $id)->first();
+
         $venta = new venta();
         $venta->cliente_id = $id;
         $venta->empresa_id = $id;
@@ -53,7 +55,7 @@ class VentaController extends Controller
         $venta->save();
 
         $id_venta = venta::where('cliente_id', $id)->orderBy('id', 'desc')->first();
-        $d = detalle_carrito::where('carrito_id', $request->carrito)->get();
+        $d = detalle_carrito::where('carrito_id', $c->id)->get();
 
         foreach ($d as $detalle) {
             $dv = new detalle_venta();
@@ -76,6 +78,46 @@ class VentaController extends Controller
             ->causedBy(auth()->user()) // El usuario responsable de la actividad
             ->log('Realizo una compra ' );
         return redirect()->route('venta.index')->with('success', 'Compra realizada con éxito');
+    }
+
+    public function storee(Request $request)
+    {
+        // dd($request);
+
+        // dd($c);
+        $id = auth()->user()->id;
+        $c = carrito::where('cliente_id', $id)->first();
+        $venta = new venta();
+        $venta->cliente_id = $id;
+        $venta->empresa_id = $id;
+        $venta->total = $c->total;
+        $venta->forma_pago = "efectivo";
+        $venta->save();
+
+        $id_venta = venta::where('cliente_id', $id)->orderBy('id', 'desc')->first();
+        $d = detalle_carrito::where('carrito_id', $c->id)->get();
+
+        foreach ($d as $detalle) {
+            $dv = new detalle_venta();
+            $dv->venta_id = $id_venta->id;
+            $dv->producto_id = $detalle->producto_id;
+            $dv->cantidad = $detalle->cantidad;
+            $dv->precio = $detalle->precio * $detalle->cantidad;
+            $dv->save();
+
+            $p = producto::where('id', $detalle->producto_id)->first();
+            $p->stock = $p->stock - $detalle->cantidad;
+            $p->save();
+
+            $detalle->delete();
+            $c->total = 0;
+            $c->save();
+            // return redirect()->route('venta.index')->with('success', 'Compra realizada con éxito');
+        }
+        activity()
+            ->causedBy(auth()->user()) // El usuario responsable de la actividad
+            ->log('Realizo una compra ' );
+
     }
 
     /**

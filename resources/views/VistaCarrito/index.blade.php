@@ -54,7 +54,7 @@
                             <div>
                                 <!-- Botón Pagar -->
                                 {{-- formulario venta.store --}}
-                                <form action="{{ route('venta.store') }}" method="post">
+                                <form action="{{ route('session') }}" method="post">
                                     @csrf
                                     <input type="text" name="carrito" hidden value="{{ $carrito->id }}">
                                     @php

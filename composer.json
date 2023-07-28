@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
         "spatie/laravel-activitylog": "^4.7",
-        "spatie/laravel-permission": "^5.10"
+        "spatie/laravel-permission": "^5.10",
+        "stripe/stripe-php": "^10.19"
     },
     "require-dev": {
         "deployer/deployer": "^7.3",
