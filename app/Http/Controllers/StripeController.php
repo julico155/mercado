@@ -16,7 +16,7 @@ class StripeController extends Controller
 
     public function session(Request $request)
     {
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        \Stripe\Stripe::setApiKey('sk_test_51NYepyKgyFaUBIjVNIxXVw7Vw79LBF7QhoE9LISgXAoolRMiRa61QFWxF6624EqK6mQtzQIug12lic3jZlKWBh3Q00JDJu5sGy');
         $c = carrito::where('id', $request->carrito)->first();
         $cid = $c->id;
         $totalprice = (int)($c->total/7);
