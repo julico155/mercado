@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <title><?php echo e(config('app.name', 'JLY-COMPANY')); ?></title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -39,15 +39,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('navigation-menu')->html();
-} elseif ($_instance->childHasBeenRendered('zjVanJv')) {
-    $componentId = $_instance->getRenderedChildComponentId('zjVanJv');
-    $componentTag = $_instance->getRenderedChildComponentTagName('zjVanJv');
+} elseif ($_instance->childHasBeenRendered('qtuMG8F')) {
+    $componentId = $_instance->getRenderedChildComponentId('qtuMG8F');
+    $componentTag = $_instance->getRenderedChildComponentTagName('qtuMG8F');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('zjVanJv');
+    $_instance->preserveRenderedChild('qtuMG8F');
 } else {
     $response = \Livewire\Livewire::mount('navigation-menu');
     $html = $response->html();
-    $_instance->logRenderedChild('zjVanJv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('qtuMG8F', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
