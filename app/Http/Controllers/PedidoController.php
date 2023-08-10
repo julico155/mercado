@@ -35,7 +35,6 @@ class PedidoController extends Controller
 
         foreach ($productos as $p) {
             $marca = marca::where('id', $p->marca_id)->first();
-            dd($marca);
             $proveedores = Proveedor::where('marca_id', $p->marca_id)->get();
             $arrayProductos[] = [
                 "producto_id"    => $p->id,
