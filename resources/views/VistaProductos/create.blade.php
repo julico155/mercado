@@ -19,13 +19,12 @@
         </div>
         @else
         <div class="w-full lg:w-1/2 mx-auto my-4">
-
-            <h2 class="text-2xl font-bold text-green-500 mt-8 mb-4 ml-4 uppercase">Registro de productos:</h2>
+            <h2 class="text-2xl font-bold text-purple-500 mt-8 mb-4 ml-4 uppercase">Registro de productos:</h2>
             <form action="{{ route('producto.store') }}" method="POST" enctype="multipart/form-data"
-                class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-cols-2 gap-4">
                 @csrf
 
-                <div class="mb-4">
+                <div class="mb-4 col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="categoria">Categoría:</label>
                     <select name="categoria" id="categoria" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
@@ -37,7 +36,8 @@
                         @endforelse
                     </select>
                 </div>
-                <div class="mb-4">
+
+                <div class="mb-4 col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="categoria">Marca:</label>
                     <select name="marca" id="marca" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
@@ -49,46 +49,45 @@
                         @endforelse
                     </select>
                 </div>
-                <div class="mb-4">
+
+                <div class="mb-4 col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="foto">Foto:</label>
                     <input type="file" name="foto" id="foto" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre:</label>
                     <input type="text" name="nombre" id="nombre" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 col-span-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">Descripción:</label>
                     <textarea name="descripcion" id="descripcion" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500"></textarea>
                 </div>
 
-
-                <div class="mb-4">
+                <div class="mb-4 col-span-1">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="cant_min">Cantidad Minima:</label>
                     <input type="number" name="cant_min" id="cant_min" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 
-
-                <div class="mb-4">
+                <div class="mb-4 col-span-1">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="precio">Precio:</label>
                     <input type="number" name="precio" id="precio" required
                         class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
                 </div>
 
-                <div class="flex items-center justify-between mb-4">
+                <div class="col-span-2 flex items-center justify-between mb-4">
                     <button
-                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
+                        class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
                 </div>
             </form>
         </div>
+
+
     @endif
-    <div class="border-t my-4">
-        <h2 class="text-2xl font-bold text-green-500 mt-8 mb-4 ml-4 uppercase">Seccion Clientes: </h2>
-    </div>
+
 @endsection

@@ -23,121 +23,6 @@
                         {{ __('Inicio') }}
                     </x-nav-link>
 
-                    @can('AdmUsuario')
-                        <!-- Gestion de Usuarios -->
-                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
-                            @mouseleave="isOpen = false">
-                            <x-nav-link :active="request()->routeIs('empresa.create')">
-                                {{ __('Gestion de Usuarios') }}
-                            </x-nav-link>
-
-                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
-                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
-                                @mouseleave="isOpen = false">
-                                <li><a href="{{ route('user.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Usuarios') }}</a>
-                                </li>
-                                <li><a href="{{ route('rol.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Rol') }}</a>
-                                </li>
-                                <li><a href="{{ route('permisos.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Privilegios') }}</a>
-                                </li>
-                                <li><a href="{{ route('bitacora.index') }}"
-                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Bitacora') }}</a>
-                            </li>
-                            </ul>
-                        </div>
-                    @endcan
-                    @can('AdmCompra')
-                        <!-- Gestion de Compra -->
-                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
-                            @mouseleave="isOpen = false">
-                            <x-nav-link :active="request()->routeIs('empresa.create')">
-                                {{ __('Gestion de Compra') }}
-                            </x-nav-link>
-
-                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
-                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
-                                @mouseleave="isOpen = false">
-                                <li><a href="{{ route('compra.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Compra') }}</a>
-                                </li>
-                                <li><a href="{{ route('pedido.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Pedido') }}</a>
-                                </li>
-                                <li><a href="{{ route('proveedor.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Proveedor') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    @endcan
-                    @can('AdmVenta')
-                        <!-- Gestion de Venta -->
-                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
-                            @mouseleave="isOpen = false">
-                            <x-nav-link :active="request()->routeIs('empresa.create')">
-                                {{ __('Gestion de Venta') }}
-                            </x-nav-link>
-
-                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
-                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
-                                @mouseleave="isOpen = false">
-                                <li><a href="{{ route('venta.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Venta') }}</a>
-                                </li>
-                                <li><a href="{{ route('carrito.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Carrito de Venta') }}</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    @endcan
-                    @can('AdmProductos')
-                        <!-- Gestion de Insumos -->
-                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
-                            @mouseleave="isOpen = false">
-                            <x-nav-link :active="request()->routeIs('empresa.create')">
-                                {{ __('Gestion de Insumos') }}
-                            </x-nav-link>
-
-                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
-                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
-                                x-transition:enter-start="opacity-0 transform scale-95"
-                                x-transition:enter-end="opacity-100 transform scale-100"
-                                x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100 transform scale-100"
-                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
-                                @mouseleave="isOpen = false">
-                                <li><a href="{{ route('marca.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Marca') }}</a>
-                                </li>
-                                <li><a href="{{ route('categoria.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Categoria') }}</a>
-                                </li>
-                                <li><a href="{{ route('producto.index') }}"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Producto') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    @endcan
-
-
 
                 </div>
             </div>
@@ -383,3 +268,147 @@
         </div>
     </div>
 </nav>
+
+
+<div class="bg-white dark:bg-gray-800 border-r border-gray-100 dark:border-gray-700 w-64 h-screen fixed overflow-y-auto">
+    <nav x-data="{ open: false }">
+
+
+        <!-- Navigation Links -->
+        <div class="space-y-4 p-4">
+
+            @can('AdmUsuario')
+                        <!-- Gestion de Usuarios -->
+                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
+                            @mouseleave="isOpen = false">
+                            <x-nav-link :active="request()->routeIs('empresa.create')">
+                                {{ __('->Gestion de Usuarios') }}
+                            </x-nav-link>
+
+                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
+                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
+                                @mouseleave="isOpen = false">
+                                <li><a href="{{ route('user.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Usuarios') }}</a>
+                                </li>
+                                <li><a href="{{ route('rol.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Rol') }}</a>
+                                </li>
+                                <li><a href="{{ route('permisos.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Privilegios') }}</a>
+                                </li>
+                                <li><a href="{{ route('bitacora.index') }}"
+                                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Bitacora') }}</a>
+                            </li>
+                            </ul>
+                        </div>
+                    @endcan
+                    @can('AdmCompra')
+                        <!-- Gestion de Compra -->
+                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
+                            @mouseleave="isOpen = false">
+                            <x-nav-link :active="request()->routeIs('empresa.create')">
+                                {{ __('->Gestion de Compra') }}
+                            </x-nav-link>
+
+                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
+                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
+                                @mouseleave="isOpen = false">
+                                <li><a href="{{ route('compra.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Compra') }}</a>
+                                </li>
+                                <li><a href="{{ route('pedido.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Pedido') }}</a>
+                                </li>
+                                <li><a href="{{ route('proveedor.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Proveedor') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endcan
+                    @can('AdmVenta')
+                        <!-- Gestion de Venta -->
+                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
+                            @mouseleave="isOpen = false">
+                            <x-nav-link :active="request()->routeIs('empresa.create')">
+                                {{ __('->Gestion de Venta') }}
+                            </x-nav-link>
+
+                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
+                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
+                                @mouseleave="isOpen = false">
+                                <li><a href="{{ route('venta.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Venta') }}</a>
+                                </li>
+                                <li><a href="{{ route('carrito.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Carrito de Venta') }}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    @endcan
+                    @can('AdmProductos')
+                        <!-- Gestion de Insumos -->
+                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
+                            @mouseleave="isOpen = false">
+                            <x-nav-link :active="request()->routeIs('empresa.create')">
+                                {{ __('->Gestion de Insumos') }}
+                            </x-nav-link>
+
+                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
+                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
+                                @mouseleave="isOpen = false">
+                                <li><a href="{{ route('marca.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Marca') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endcan
+                    @can('AdmProductos')
+                        <!-- Gestion de Prueva -->
+                        <div class="relative py-4" x-data="{ isOpen: false }" @mouseover="isOpen = true"
+                            @mouseleave="isOpen = false">
+                            <x-nav-link :active="request()->routeIs('empresa.create')">
+                                {{ __('->Gestion Prueba') }}
+                            </x-nav-link>
+
+                            <ul class="absolute left-0 z-10 py-2 mt-2 space-y-2 text-sm bg-white border border-gray-200 rounded-md shadow-lg w-40"
+                                x-show="isOpen" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" @mouseover="isOpen = true"
+                                @mouseleave="isOpen = false">
+                                <li><a href="{{ route('categoria.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Categoria') }}</a>
+                                </li>
+                                <li><a href="{{ route('producto.index') }}"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-100">{{ __('Gestionar Producto') }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endcan
+        </div>
+    </nav>
+</div>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('id_propietario')->references('id')->on('users');
             $table->decimal('precio',8,2);
             $table->string('imagen');
+            $table->string('talla')->nullable();
             $table->integer('stock')->nullable();
             $table->integer('stock_min')->nullable();
             $table->unsignedBigInteger('categoria_id')->nullable();

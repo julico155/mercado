@@ -61,6 +61,7 @@ class ProductoController extends Controller
         $p->id_propietario = $id;
         $p->imagen = $destino . $foto;
         $p->categoria_id = $request->categoria;
+        $p->talla = 'm';
         $p->marca_id = $request->marca;
         $p->stock = 0;
         $p->stock_min = $request->cant_min;

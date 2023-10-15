@@ -4,9 +4,9 @@
     <div class="my-8 mx-8">
         <div class="container mx-auto">
             <div class="overflow-x-auto mx-auto bg-white shadow-md rounded px-8 py-6 mt-8">
-                <h2 class="text-2xl text-green-500 font-bold mb-6">Lista de Usuarios</h2>
+                <h2 class="text-2xl mb-6">Usuarios</h2>
                 <table class="min-w-full bg-white">
-                    <thead>
+                    <thead class="">
                         <tr>
                             <th class="py-2 px-4 border-b">ID</th>
                             <th class="py-2 px-4 border-b">Nombre</th>
@@ -22,11 +22,11 @@
                             <td class="py-2 px-4 border-b">{{ $user->email }}</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="{{ route('user.edit', $user->id) }}"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                    class=" py-2 px-4 rounded">
                                     Editar
                                 </a>
                                 <a href="{{ route('user.assign_role', $user->id) }}"
-                                    class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">
+                                    class=" py-2 px-4 rounded">
                                     Roles
                                 </a>
                             </td>

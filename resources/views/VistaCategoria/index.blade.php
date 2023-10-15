@@ -1,8 +1,9 @@
 @extends('dashboard')
 
 @section('producto')
-    <div class="w-full lg:w-1/2 mx-auto mb-4">
-        <h2 class="text-2xl font-bold text-green-500 my-4 ml-4">
+<div class="flex flex-wrap">
+    <div class="w-full lg:w-1/2 px-4 mb-4">
+        <h2 class="text-2xl  my-4 ml-4">
             Categorias</h2>
         <form action="{{ route('categoria.store') }}" method="POST" enctype="multipart/form-data"
             class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -11,22 +12,22 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="categoria">Nombre Categoria:</label>
                 <input type="text" name="categoria" id="categoria"
-                    class="border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
+                    class="border border-gray-400 rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
             </div>
 
             <div class="flex items-center justify-between mb-4">
                 <button type="submit"
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
+                    class="py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
             </div>
         </form>
     </div>
 
-    <div class="w-full lg:w-1/2 mx-auto mb-4">
+    <div class="w-full lg:w-1/2 px-4 mb-4">
         <div class="overflow-x-auto my-6 shadow-md rounded">
             <table class="min-w-full bg-white border border-gray-300">
-                <thead class="bg-green-500 text-white">
+                <thead class=""">
                     <tr>
-                        <th class="py-2 px-4 border-b text-left">#</th>
+                        <th class="py-2 px-4 border-b text-left"></th>
                         <th class="py-2 px-4 border-b text-left">Categoria</th>
                         <th class="py-2 px-4 border-b">Acciones</th>
                     </tr>
@@ -47,25 +48,15 @@
 
                             <td class="text-center py-2 px-4 border-b">
                                 <a href="{{ route('categoria.edit', $categoria) }}"
-                                    class="text-green-500 hover:text-green-700 mr-2">
-                                    Edit
+                                    class=" mr-2">
+                                    Editar
                                 </a>
                                 <form action="{{ route('categoria.destroy', $categoria->id) }}" method="POST"
                                     class="inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-red-500 hover:text-red-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
-                                            width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" />
-                                            <line x1="4" y1="7" x2="20" y2="7" />
-                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                        </svg>
+                                    <button type="submit" class="">
+                                        borrar
                                     </button>
                                 </form>
                             </td>
@@ -84,4 +75,5 @@
             </table>
         </div>
     </div>
+</div>
 @endsection

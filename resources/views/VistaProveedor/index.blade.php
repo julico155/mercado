@@ -1,17 +1,18 @@
 @extends('dashboard')
 
 @section('compra')
-    <div class="container mx-auto px-4 my-4">
-        <div class="flex flex-col items-center sm:flex-row">
-            <div class="mt-4 sm:ml-4">
-                <a href="{{ route('proveedor.create') }}" class="bg-green-500 text-white px-4 py-2 rounded-md mr-2">Registrar
-                    Proveedor</a>
-            </div>
+    <div class="flex flex-col items-center sm:flex-row">
+        <div class="mt-4 sm:ml-4">
+            <a href="{{ route('proveedor.create') }}"
+                class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md border-b-4 border-purple-700">Registrar Proveedor</a>
         </div>
+    </div>
+
+
         <div class="w-full lg:w-1/2 mx-auto mb-4">
             <div class="overflow-x-auto my-6 shadow-md rounded">
                 <table class="min-w-full bg-white border border-gray-300">
-                    <thead class="bg-green-500 text-white">
+                    <thead class="bg-purple-500 text-white">
                         <tr>
                             <th class="py-2 px-4 border-b text-left">#</th>
                             <th class="py-2 px-4 border-b text-left">Nombre</th>
@@ -45,7 +46,7 @@
                                 </td>
                                 <td class="text-center py-2 px-4 border-b">
                                     <a href="{{ route('proveedor.edit', $p['proveedor_id']) }}"
-                                        class="text-green-500 hover:text-green-700 mr-2">
+                                        class="text-purple-500 hover:text-purple-700 mr-2">
                                         Edit
                                     </a>
                                     <form action="{{ route('proveedor.destroy', $p['proveedor_id']) }}" method="POST"
@@ -84,7 +85,5 @@
             </div>
         </div>
     </div>
-    <div class="border-t my-4">
-        <h2 class="text-2xl font-bold text-green-500 mt-8 mb-4 ml-4 uppercase">Seccion Clientes: </h2>
-    </div>
+
 @endsection
