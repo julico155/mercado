@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+
+
+
 class Roles extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class Roles extends Controller
     {
         $roles = Role::all();
 
-        return view('roles.index', compact('roles'));
+        return view('VistaRolesyPermisos.index', compact('roles'));
     }
 
     /**
@@ -113,6 +116,7 @@ public function updatePermissions(Request $request, $roleId)
 
     return redirect()->route('rol.index');
 }
+
 
 
 }
